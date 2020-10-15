@@ -1,0 +1,63 @@
+import "./font/otf/otfFont.css";
+import "./font/woff/woffFont.css";
+import "./fullpage.min.css"
+import "./style.css"
+
+import { TweenMax, TimelineMax } from "gsap/all"; 
+import fullpage from './scripts/fullpage.min.js';
+
+
+const plugins = [ TweenMax ]
+
+new fullpage("#fullpage", {
+  //scrollHorizontally: true,
+  autoScrolling: true,
+  navigation: true,
+  fitToSelection: true,
+  paddingTop: "50px",
+  paddingBottom: "100px",
+  onLeave: (origin, destination, direction) => {
+    const nextSection = destination.item
+    const title = nextSection.querySelector("h1")
+    const timeline = new TimelineMax({ delay: 0.5})
+    timeline.fromTo(title,  { y: 50, opacity: 0}, { duration: 0.5, y: 0, opacity: 1})
+
+    if (destination.index === 0) {
+      timeline.fromTo("#title",  { y: 50, opacity: 0}, { duration: 0.6, y: 0, opacity: 1}, "-=0.5")
+      timeline.fromTo("#CTA",  { opacity: 0}, { duration: 0.6, opacity: 1}, "-=0.5")
+    } else if (destination.index === 1) {
+      timeline.fromTo(".fields",  { y: 50, opacity: 0}, { duration: 0.6, y: 0, opacity: 1}, "-=0.5")
+      timeline.fromTo(".tech",  {  opacity: 0}, {  duration: 0.3, opacity: 1}, "-=0.4")
+    } else {
+      timeline.fromTo(".work",  {  opacity: 0}, { duration: 0.3, opacity: 1}, "-=0.4")
+    }
+    },
+    anchors: ["page1", "page2", "page3"]
+})
+const moveTo = (page) => {
+  fullpage_api.moveTo(page, 1);
+}
+
+const toSkills = document.querySelectorAll(".toSkills")
+const toWork = document.querySelectorAll(".toWork")
+document.querySelector("#home").addEventListener("click", () => moveTo("page1"))
+
+
+for (let b=0; b < toSkills.length; b++) {
+  toSkills[b].addEventListener("click", () => moveTo("page2"))
+}
+
+for (let b=0; b < toWork.length; b++) {
+  toWork[b].addEventListener("click", () => moveTo("page3"))
+}
+
+const tl = new TimelineMax()
+tl.fromTo("#hi",  { x: -50, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: Power2.easeOut})
+tl.fromTo("#img",  { x: -30, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: Power2.easeOut}, "-=0.8")
+tl.fromTo("#title",  { x: 0, opacity: 0}, { duration: 1.2, x: 0, opacity: 1, ease: Power2.easeOut}, "-=")
+tl.fromTo("#CTA",  {opacity: 0}, {  duration: 1.2, opacity: 1}, "-=1.2")
+tl.fromTo("svg",  { opacity: 0}, { duration: 1.2, opacity: 1}, "+=1")
+.fromTo("svg",  { y: 0}, { duration: 0.5, y: 20, ease: Power2.easeOut}, "+=1")
+.to("svg",  { duration: 0.5, y: 0, ease: Power1.easeOut}, "-=")
+
+
