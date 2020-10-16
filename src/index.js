@@ -11,6 +11,7 @@ const plugins = [ TweenMax ]
 
 new fullpage("#fullpage", {
   //scrollHorizontally: true,
+  licenseKey: null,
   autoScrolling: true,
   navigation: true,
   fitToSelection: true,
@@ -32,7 +33,7 @@ new fullpage("#fullpage", {
       timeline.fromTo(".work",  {  opacity: 0}, { duration: 0.3, opacity: 1}, "-=0.4")
     }
     },
-    anchors: ["page1", "page2", "page3"]
+    anchors: ["main", "toskills", "towork"]
 })
 const moveTo = (page) => {
   fullpage_api.moveTo(page, 1);
@@ -40,24 +41,24 @@ const moveTo = (page) => {
 
 const toSkills = document.querySelectorAll(".toSkills")
 const toWork = document.querySelectorAll(".toWork")
-document.querySelector("#home").addEventListener("click", () => moveTo("page1"))
+document.querySelector("#home").addEventListener("click", () => moveTo("main"))
 
 
 for (let b=0; b < toSkills.length; b++) {
-  toSkills[b].addEventListener("click", () => moveTo("page2"))
+  toSkills[b].addEventListener("click", () => moveTo("toskills"))
 }
 
 for (let b=0; b < toWork.length; b++) {
-  toWork[b].addEventListener("click", () => moveTo("page3"))
+  toWork[b].addEventListener("click", () => moveTo("towork"))
 }
 
 const tl = new TimelineMax()
-tl.fromTo("#hi",  { x: -50, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: Power2.easeOut})
-tl.fromTo("#img",  { x: -30, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: Power2.easeOut}, "-=0.8")
-tl.fromTo("#title",  { x: 0, opacity: 0}, { duration: 1.2, x: 0, opacity: 1, ease: Power2.easeOut}, "-=")
+tl.fromTo("#hi",  { x: -50, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: "Power2.easeOut"})
+tl.fromTo("#img",  { x: -30, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: "Power2.easeOut"}, "-=0.8")
+tl.fromTo("#title",  { x: 0, opacity: 0}, { duration: 1.2, x: 0, opacity: 1, ease: "Power2.easeOut"}, "-=")
 tl.fromTo("#CTA",  {opacity: 0}, {  duration: 1.2, opacity: 1}, "-=1.2")
-tl.fromTo("svg",  { opacity: 0}, { duration: 1.2, opacity: 1}, "+=1")
-.fromTo("svg",  { y: 0}, { duration: 0.5, y: 20, ease: Power2.easeOut}, "+=1")
-.to("svg",  { duration: 0.5, y: 0, ease: Power1.easeOut}, "-=")
+tl.fromTo("#svg",  { opacity: 0}, { duration: 1.2, opacity: 1}, "+=1")
+.fromTo("#svg",  { y: 0}, { duration: 0.5, y: 20, ease: "Power2.easeOut"}, "+=1")
+.to("#svg",  { duration: 0.5, y: 0, ease: "Power2.easeOut"})
 
 

@@ -14,8 +14,17 @@ module.exports = {
   },
   optimization: {
     minimizer: [new OptimizeCssAssetsPlugin(), 
-      new TerserPlugin(),
+      new TerserPlugin({
+        extractComments: true,
+        sourceMap: true, // Must be set to true if using source-maps in production
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
       new HtmlWebpackPlugin({
+        favicon: "./src/favicon/favicon.ico",
         template: "./src/index.html",
         minify: {
           removeAttributeQuotes: true,
@@ -38,9 +47,8 @@ module.exports = {
         test: /\.html$/,
         use: ["html-loader"]
       },
-
       {
-        test: /\.(jpe?g|png|gif|svg|otf|ico|woff|woff2)$/,
+        test: /\.(jpe?g|png|gif|svg|otf|woff|woff2)$/,
         use: [
           {
             loader: 'url-loader',
@@ -52,7 +60,6 @@ module.exports = {
           }
         ]
       },
-
       {
         test: /\.(jpg|png|gif|svg)$/,
         loader: 'image-webpack-loader',
