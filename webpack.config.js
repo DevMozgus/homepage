@@ -48,7 +48,7 @@ module.exports = {
         use: ["html-loader"],
       },
       {
-        test: /(?=.*preview)(?=.*\.svg)/,
+        test: /(?=.*preview)(?=.*\.png)/,
         use: [
           {
             loader: 'file-loader',
