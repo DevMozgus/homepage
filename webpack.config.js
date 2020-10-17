@@ -48,6 +48,18 @@ module.exports = {
         use: ["html-loader"],
       },
       {
+        test: /(?=.*preview)(?=.*\.svg)/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets',
+            }
+          }
+        ]
+      },
+      {
         test: /\.(jpe?g|png|gif|svg|otf|woff|woff2)$/,
         use: [
           {
@@ -76,4 +88,7 @@ module.exports = {
 
 
 /* name: "[name].[hash].[ext]",
-outputPath: "assets", */
+outputPath: "assets",
+
+
+*/
