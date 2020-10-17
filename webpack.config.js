@@ -45,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: ["html-loader"],
       },
       {
         test: /\.(jpe?g|png|gif|svg|otf|woff|woff2)$/,
@@ -67,7 +67,8 @@ module.exports = {
         // before url-loader/svg-url-loader
         // and not duplicate it in rules with them
         enforce: 'pre'
-      }
+      },
+
     ]
   },
 
