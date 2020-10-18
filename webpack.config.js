@@ -33,21 +33,6 @@ module.exports = {
           removeComments: true
         }
       }),
-      new HtmlWebpackTagsPlugin({
-        metas: [{
-            path: 'img/preview.png',
-            attributes: {
-                property: 'og:image'
-            }
-          },
-          {
-            attributes: {
-                property: 'og:image:type',
-                content: "image/png"
-            }
-          },
-      ]
-    }),
     ]
   },
   plugins: [
@@ -121,4 +106,21 @@ outputPath: "assets",
           }
         ]
       })
+
+
+            new HtmlWebpackTagsPlugin({
+        metas: [{
+            path: 'img/preview.png',
+            attributes: {
+                property: 'og:image'
+            }
+          },
+          {
+            attributes: {
+                property: 'og:image:type',
+                content: "image/png"
+            }
+          },
+      ]
+    }),
 */
