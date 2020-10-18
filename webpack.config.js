@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 
 module.exports = {
   mode: "production",
@@ -31,11 +32,28 @@ module.exports = {
           collapseWhitespace: true,
           removeComments: true
         }
-      })]
+      }),
+      new HtmlWebpackTagsPlugin({
+        metas: [{
+            path: 'img/preview.png',
+            attributes: {
+                property: 'og:image'
+            }
+          },
+          {
+            attributes: {
+                property: 'og:image:type',
+                content: "image/png"
+            }
+          },
+      ]
+    }),
+    ]
   },
   plugins: [
   new MiniCssExtractPlugin({ filename: "[name].[contentHash].css"}),
   new CleanWebpackPlugin(),
+
   ],
   module: {
     rules: [
@@ -46,18 +64,6 @@ module.exports = {
       {
         test: /\.html$/,
         use: ["html-loader"],
-      },
-      {
-        test: /(?=.*preview)(?=.*\.png)/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets',
-            }
-          }
-        ]
       },
       {
         test: /\.(jpe?g|png|gif|svg|otf|woff|woff2)$/,
@@ -90,5 +96,29 @@ module.exports = {
 /* name: "[name].[hash].[ext]",
 outputPath: "assets",
 
+      {
+        test: /(?=.*preview)(?=.*\.png)/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets',
+            }
+          }
+        ]
+      },
 
+
+
+      new HtmlWebpackTagsPlugin({
+        metas: [
+          {
+            path: 'assets/preview.png',
+            attributes: {
+              property: 'og:image'
+            }
+          }
+        ]
+      })
 */

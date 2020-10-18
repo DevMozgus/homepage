@@ -6,6 +6,8 @@ import "./style.css"
 import { TweenMax, TimelineMax } from "gsap/all"; 
 import fullpage from './scripts/fullpage.min.js';
 
+let img = new Image();
+img.src = require('./img/preview.png');
 
 const plugins = [ TweenMax ]
 
