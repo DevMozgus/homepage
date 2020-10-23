@@ -24,27 +24,17 @@ module.exports = {
           },
         },
       }),
-      new HtmlWebpackPlugin({
-        favicon: "./src/favicon/favicon.ico",
-        template: "./src/index.html",
-        minify: {
-          removeAttributeQuotes: true,
-          collapseWhitespace: true,
-          removeComments: true
-        }
-      }),
     ]
   },
   plugins: [
   new MiniCssExtractPlugin({ filename: "[name].[contentHash].css"}),
   new CleanWebpackPlugin(),
-
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.html$/,
@@ -80,6 +70,16 @@ module.exports = {
 
 /* name: "[name].[hash].[ext]",
 outputPath: "assets",
+
+      new HtmlWebpackPlugin({
+        favicon: "./src/favicon/favicon.ico",
+        template: "./src/index.html",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true
+        }
+      }),
 
       {
         test: /(?=.*preview)(?=.*\.png)/,

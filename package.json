@@ -35,6 +35,7 @@
     "fullpage": "^1.5.1",
     "fullpage.js": "^3.0.9",
     "gsap": "^3.5.1",
-    "html-webpack-tags-plugin": "^2.0.17"
+    "html-webpack-tags-plugin": "^2.0.17",
+    "style-loader": "^2.0.0"
   }
 }
