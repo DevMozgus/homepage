@@ -57,7 +57,7 @@ for (let b=0; b < toWork.length; b++) {
 const tl = new TimelineMax()
 tl.fromTo("#hi",  { x: -50, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: "Power2.easeOut"})
 tl.fromTo("#img",  { x: -30, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: "Power2.easeOut"}, "-=0.8")
-tl.fromTo("#title",  { x: 0, opacity: 0}, { duration: 1.2, x: 0, opacity: 1, ease: "Power2.easeOut"}, "-=")
+tl.fromTo("#title",  { x: 0, opacity: 0}, { duration: 1.2, x: 0, opacity: 1, ease: "Power2.easeOut"})
 tl.fromTo("#CTA",  {opacity: 0}, {  duration: 1.2, opacity: 1}, "-=1.2")
 tl.fromTo("#svg",  { opacity: 0}, { duration: 1.2, opacity: 1}, "+=1")
 .fromTo("#svg",  { y: 0}, { duration: 0.5, y: 20, ease: "Power2.easeOut"}, "+=1")
