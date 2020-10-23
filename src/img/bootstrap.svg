@@ -231,7 +231,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -240,7 +240,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <circle
-       style="fill:#f9f7f7;stroke-width:0.354999;fill-opacity:1"
+       style="fill:#f9f7f7;stroke-width:0.354999;fill-opacity:0.34957254"
        id="path1002"
        cx="6.3499999"
        cy="6.3499999"
