@@ -27,8 +27,8 @@
 
   <link rel="icon" type="image/x-icon" href="./favicon/favicon.ico">
 </head>
-<body>
-  <div id="loadOverlay" style="background-color:#fff; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+<body >
+  <div id="loadOverlay" style="background-color:#fff; position:absolute; top:0px; left:0px; width:100vw; height:100vh; z-index:2000;"></div>
   <header>
     <button id="home">Nicola<b>Urlicic</b></button>
     <nav>
@@ -41,7 +41,7 @@
     <section class="section p1">
       <h1 id="hi">Hi! I'm Nicola,<br> A Designer & Developer</h1>
       <img id="img" src="./img/dev.svg" alt="website design" />
-      <h2 id="title">I will help you develop products that stand out</h2>
+      <h2 id="title">I Will Help You Develop Products That Stand Out</h2>
       <div id="CTA">
         <button class="toSkills">VIEW MY SKILLS</button>
         <a href="mailto:nurlicic@gmail.com">CONTACT ME</a>
@@ -110,20 +110,40 @@
       </section>
     </section>
     <section class="section p3">
-      <h1>Recent Work</h1>
-      <section class="work">
-        <img src="./img/blog.png" />
-        <h2>Blog App</h2>
-        <div>
-        <a href="https://mernblog.nicolaurlicic.com/">Live Demonstration</a>
-        <a href="https://github.com/nikolaki333/blogFullstack">Source code</a>
-        </div>
-      </section>
+      <h1>RECENT WORK</h1>
+      <div id="projects">
+        <section class="work">
+          <img alt="blog website preview" src="./img/blog.png" />
+          <h2>React & Redux Blog</h2>
+          <div>
+          <a href="https://mernblog.nicolaurlicic.com/">Live Demonstration</a>
+          <a href="https://github.com/devmozgus/blogFullstack">Source code</a>
+          </div>
+        </section>
+        <section alt="hyperapp website preview" class="work">
+          <img src="./img/hyperapp.jpg" />
+          <h2>Hyperstart Portfolio</h2>
+          <div>
+          <a href="https://hyperapp.nicolaurlicic.com/">Live Demonstration</a>
+          <a href="https://github.com/devmozgus/hyperstart">Source code</a>
+          </div>
+        </section>
+        <section class="work">
+          <img alt="graphql website preview"  src="./img/graphql.jpg" />
+          <h2>GraphQL & React Booklog</h2>
+          <div>
+          <a href="https://github.com/devmozgus/merngblog">Source code</a>
+          </div>
+        </section>
+        <section class="work">
+          <img alt="current site preview" src="./img/preview.png" />
+          <h2>This Site</h2>
+          <div>
+          <a href="https://github.com/devmozgus/homepage">Source code</a>
+          </div>
+        </section>
+      </div>
     </section>
   </div>
-<!--   <script src="./scripts/TimelineMax.min.js"></script>
-  <script src="./scripts/TweenMax.min.js"></script> 
-  <script src="./scripts/fullpage.min.js"></script>
-  -->
 </body>
 </html>

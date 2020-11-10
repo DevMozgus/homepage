@@ -17,7 +17,7 @@ module.exports = {
     minimizer: [new OptimizeCssAssetsPlugin(), 
       new TerserPlugin({
         extractComments: true,
-        sourceMap: true, // Must be set to true if using source-maps in production
+        sourceMap: true, 
         terserOptions: {
           compress: {
             drop_console: true,
@@ -65,9 +65,6 @@ module.exports = {
       {
         test: /\.(jpg|png|gif|svg)$/,
         loader: 'image-webpack-loader',
-        // Specify enforce: 'pre' to apply the loader
-        // before url-loader/svg-url-loader
-        // and not duplicate it in rules with them
         enforce: 'pre'
       },
 
@@ -76,50 +73,3 @@ module.exports = {
 
 }
 
-
-/* name: "[name].[hash].[ext]",
-outputPath: "assets",
-
-      {
-        test: /(?=.*preview)(?=.*\.png)/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets',
-            }
-          }
-        ]
-      },
-
-
-
-      new HtmlWebpackTagsPlugin({
-        metas: [
-          {
-            path: 'assets/preview.png',
-            attributes: {
-              property: 'og:image'
-            }
-          }
-        ]
-      })
-
-
-            new HtmlWebpackTagsPlugin({
-        metas: [{
-            path: 'img/preview.png',
-            attributes: {
-                property: 'og:image'
-            }
-          },
-          {
-            attributes: {
-                property: 'og:image:type',
-                content: "image/png"
-            }
-          },
-      ]
-    }),
-*/

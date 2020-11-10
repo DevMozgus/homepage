@@ -20,20 +20,29 @@ new fullpage("#fullpage", {
   paddingTop: "50px",
   paddingBottom: "100px",
   onLeave: (origin, destination, direction) => {
-    const nextSection = destination.item
-    const title = nextSection.querySelector("h1")
-    const timeline = new TimelineMax({ delay: 0.5})
-    timeline.fromTo(title,  { y: 50, opacity: 0}, { duration: 0.5, y: 0, opacity: 1})
-
-    if (destination.index === 0) {
-      timeline.fromTo("#title",  { y: 50, opacity: 0}, { duration: 0.6, y: 0, opacity: 1}, "-=0.5")
-      timeline.fromTo("#CTA",  { opacity: 0}, { duration: 0.6, opacity: 1}, "-=0.5")
-    } else if (destination.index === 1) {
-      timeline.fromTo(".fields",  { y: 50, opacity: 0}, { duration: 0.6, y: 0, opacity: 1}, "-=0.5")
-      timeline.fromTo(".tech",  {  opacity: 0}, {  duration: 0.3, opacity: 1}, "-=0.4")
-    } else {
-      timeline.fromTo(".work",  {  opacity: 0}, { duration: 0.3, opacity: 1}, "-=0.4")
+    if (!(document.documentElement.clientWidth <= 850 || window.innerWidth <= 850)) {
+      const nextSection = destination.item
+      const title = nextSection.querySelector("h1")
+      const timeline = new TimelineMax({ delay: 0.5})
+      timeline.fromTo(title,  { y: 50, opacity: 0}, { duration: 0.5, y: 0, opacity: 1})
+      if (destination.index === 0) {
+        timeline.fromTo("#title",  { y: 50, opacity: 0}, { duration: 0.6, y: 0, opacity: 1}, "-=0.5")
+        timeline.fromTo("#CTA",  { opacity: 0}, { duration: 0.6, opacity: 1}, "-=0.5")
+      } else if (destination.index === 1) {
+        timeline.fromTo(".fields",  { y: 50, opacity: 0}, { duration: 0.6, y: 0, opacity: 1}, "-=0.5")
+        timeline.fromTo(".tech",  {  opacity: 0}, {  duration: 0.3, opacity: 1}, "-=0.4")
+      } else {
+        timeline.fromTo(".work",  {  opacity: 0}, { duration: 0.3, opacity: 1}, "-=0.4")
+      }
     }
+    },
+    afterResize: (width, height) => {
+      if (width <= 850 || document.documentElement.clientWidth <= 850 || window.innerWidth <= 850) {
+        fullpage_api.setResponsive(true);
+      } else {
+        fullpage_api.setResponsive(false);
+      }
+
     },
     anchors: ["main", "toskills", "towork"]
 })
@@ -55,6 +64,7 @@ for (let b=0; b < toWork.length; b++) {
 }
 
 const tl = new TimelineMax()
+tl.fromTo("#loadOverlay",  { opacity: 1}, { duration: 0.3, x: 0, opacity: 0 })
 tl.fromTo("#hi",  { x: -50, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: "Power2.easeOut"})
 tl.fromTo("#img",  { x: -30, opacity: 0}, { duration: 0.8, x: 0, opacity: 1, ease: "Power2.easeOut"}, "-=0.8")
 tl.fromTo("#title",  { x: 0, opacity: 0}, { duration: 1.2, x: 0, opacity: 1, ease: "Power2.easeOut"})
@@ -64,3 +74,8 @@ tl.fromTo("#svg",  { opacity: 0}, { duration: 1.2, opacity: 1}, "+=1")
 .to("#svg",  { duration: 0.5, y: 0, ease: "Power2.easeOut"})
 
 
+if (document.documentElement.clientWidth <= 850 || window.innerWidth <= 850) {
+  fullpage_api.setResponsive(true);
+} else {
+  fullpage_api.setResponsive(false);
+}
