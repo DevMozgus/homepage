@@ -11,6 +11,8 @@ img.src = require('./img/preview.png');
 
 const plugins = [ TweenMax ]
 
+document.querySelector("body").style.opacity = "1";
+
 new fullpage("#fullpage", {
   //scrollHorizontally: true,
   licenseKey: null,
