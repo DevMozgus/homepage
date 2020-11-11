@@ -234,7 +234,7 @@ section.p3 section.work {
   height: 400px;
 }
 
-section.p3 #projects {
+section.p3 #previousProjects {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -269,12 +269,18 @@ section.p3 section.work div {
 
 section.p3 section.work a {
   margin: 15px 10px;
-  color: #3f72af;
+  color: #112d4e;;
 }
 
 section.p3 section.work a:hover, nav button:hover, nav a:hover, #CTA button:hover, #CTA a:hover {
   cursor: pointer;
 }
+
+section.p2 h1, section.p3 h1 {
+  font-family: "ITC Avant Garde Gothic Std Medium";
+}
+
+
 
 @media screen and (max-width: 1200px) {
   section.p1 div.fp-tableCell, section.p2 div.fp-tableCell, section.p3 div.fp-tableCell, header {
@@ -306,6 +312,11 @@ section.p3 section.work a:hover, nav button:hover, nav a:hover, #CTA button:hove
 }
 
 @media screen and (max-width: 850px) {
+  header {
+    position: absolute;
+
+  }
+
   section.p1 #svg.icon, section.p1 #scroll {
     bottom: -10px;
   }
@@ -339,7 +350,7 @@ section.p3 section.work a:hover, nav button:hover, nav a:hover, #CTA button:hove
   section.p3 h1 {
     text-align: center;
   }
-  section.p3 div#projects {
+  section.p3 div#previousProjects {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -347,27 +358,40 @@ section.p3 section.work a:hover, nav button:hover, nav a:hover, #CTA button:hove
 }
 
 @media screen and (max-width: 700px) {
+  #CTA {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  section.p1 #CTA a, section.p1 #CTA button {
+    margin-right: 0;
+    font-size: 0.7em;
+    border-radius: 1.9em;
+  }
+
   nav a {
     margin: 0;
   }
 
-  header, #fullpage {
+  #fullpage {
     margin:  auto;
   }
 
   header {
     width: 90vw;
-    padding: 20px;
-    position: absolute;
+    margin: 45px auto;
+    position: relative;
   }
 
   section.p1 div.fp-tableCell {
     padding-bottom: 0;
+    padding-top: 0;
   }
 
   section.p1 #svg.icon, section.p1 #scroll {
     bottom: -20px;
-    right: 40%;
+    right: 0;
     display: none;
   }
   nav button {
@@ -376,19 +400,23 @@ section.p3 section.work a:hover, nav button:hover, nav a:hover, #CTA button:hove
 
   section.p1 h1 {
     margin-top: 60px;
-    font-size: 1.4em;
+    font-size: 1.1em;
+    text-align: center;
+    width: 100%;
   }
 
   section.p1 h2 {
     margin-top: 5px;
-    width: 95%;
+    width: 100%;
     font-size: 2em;
+    text-align: center;
   }
 
   section.p1 img {
     width: 90%;
     right: -20%;
     bottom: 5%;
+    overflow-x: hidden;
   }
 
   section.p2 .fp-tableCell {
@@ -403,14 +431,15 @@ section.p3 section.work a:hover, nav button:hover, nav a:hover, #CTA button:hove
   }
 
   section.p2 h1, section.p3 h1 {
-    font-size: 2.4em;
+    font-size: 2em;
   }
 
-  section.p2 h2 {
+  section.p2 h2, section.p3 h2 {
     width: 100%;
     text-align: center;
     margin-top: 20px;
     padding-right: 0;
+    font-size: 1.5em;
   }
 
   section.p2 .tech  {
@@ -431,12 +460,25 @@ section.p3 section.work a:hover, nav button:hover, nav a:hover, #CTA button:hove
   section.p3 section.work img {
     border-radius: 0.5em;
     width: 100%;
-    min-width: 200px;
+    min-width: 100px;
     max-width: 80vw;
     max-height: 60%;
   }
 
+  section.p3 section.work {
+    margin-bottom: 50px;
+  }
+
   section.p3 section.work div {
     justify-content: space-around;
+  }
+
+  section.p3 {
+    padding-bottom: 0;
+
+  }
+
+  section.p1 #CTA button:hover {
+    cursor: pointer;
   }
 }
